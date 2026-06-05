@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&display=swap');
+
+body{
+  background: linear-gradient(to left, #FF9200, #F5B764);
+}
+.Middle {
+  font-family:"Bitcount Single", system-ui;
+  font-size: 200px;
+  padding-left: 500px;
+  background: linear-gradient(to right, #0D0094, #7100C7);
+    -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent                                                   
+}                                           
