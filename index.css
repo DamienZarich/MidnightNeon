@@ -99,14 +99,18 @@ background-attachment: fixed;
   background: transparent; 
 }
 .Spaceship {
-  height: 200px;
-  width: 100px;
-  bottom: 10%;
+  height: 70px;
+  width: 180px;
+  bottom: 50%;
   position: absolute;
-  left: 50%;
-  background: blue;
+  left: 10%;
+  background: linear-gradient(to right, blue, rgb(121, 214, 245));
+  border-radius: 50%;
   z-index: 7;
 }
 .thruster {
 
+}
+.cockPit {
+  
 }
