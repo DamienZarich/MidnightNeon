@@ -1,11 +1,15 @@
-window.addEventListener('DOMContentLoaded', () => {
-
 const Spaceship = document.querySelector('.Spaceship')
 let postionBottom = 50;
-window.addEventListener('keydown', (event) => {
-if (event.key === 'w' || event.key === 'W') {
- postionBottom += 2;
- Spaceship.style.bottom = postionBottom + "%"
+let postionLeft = 10;
+const keys = {
+    w: false,
+    a: false,
+    d: false,
+    s: false
 }
-});
+window.addEventListener('keydown', (event) => {
+    const pressedKey = event.key.toLowerCase();
+if (pressedKey in keys ) {
+ keys[pressedKey] = false;
+}
 });
