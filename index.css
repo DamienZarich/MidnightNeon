@@ -108,6 +108,7 @@ background-attachment: fixed;
  clip-path: polygon(100% 50%, 30% 0%, 50% 50%, 30% 100%);
   z-index: 7;
   filter: drop-shadow(0 0 8px #00f0ff);
+  box-shadow:  0 0 20px #00f0ff, 0 0 40px #00f0ff;
 }
 .thruster {
   position: absolute;
