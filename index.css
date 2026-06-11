@@ -112,14 +112,18 @@ background-attachment: fixed;
 }
 .thruster {
   position: absolute;
-width: 40px;
-height: 30px  ;
+width: 150px;
+height: 80px  ;
 background: #ffffff;
-clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
-left: 45%;
-top: 46px;
-box-shadow:  0 0 20px #00f0ff, 0 0 40px #00f0ff;
-z-index: 8;
+left: 9.5%;
+top: 553px;
+z-index: 6;
+transform: rotate(180deg);
+ background: 
+    linear-gradient(28deg, #ffffff 50%, transparent 50%) top left / 100% 50% no-repeat,
+    linear-gradient(152deg, #ffffff 50%, transparent 50%) bottom left / 100% 50% no-repeat;
+      border-radius: 50%;
+  filter: drop-shadow(-5px 0px 5px #00ffcc);
 }
 .cockPit {
   width: 50px;
