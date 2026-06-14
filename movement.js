@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const keys = {
     w: false,
     a: false,
-    d: false,
-    s: false
+    s: false,
+    d: false
   };
 
   spaceShip.style.bottom = positionBottom + 'px';
@@ -23,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
         positionBottom = 0;
       }
       spaceShip.style.bottom = positionBottom + 'px';
+    }
+    else if (key === 'd') {
+        positionLeft += 20;
+        spaceShip.style.left = positionLeft + 'px';
+    }
+    else if (key === 'a') {
+        positionLeft -= 20;
+        spaceShip.style.left = positionLeft + 'px'
     }
   });
 });
