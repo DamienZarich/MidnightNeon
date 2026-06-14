@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const spaceShip = document.querySelector(".Spaceship-Container");
   let positionBottom = 50;
   let positionLeft = 10;
-  
   const keys = {
     w: false,
     a: false,
@@ -10,27 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
     d: false
   };
 
-  spaceShip.style.bottom = positionBottom + 'px';
+  const speed = 5; 
   window.addEventListener('keydown', (event) => {
     const key = event.key.toLowerCase();
-    if (key === 'w') {
-      positionBottom += 20;
-      spaceShip.style.bottom = positionBottom + 'px';
-    }
-    else if (key === 's') {
-      positionBottom -= 20;
-      if (positionBottom < 0) {
-        positionBottom = 0;
-      }
-      spaceShip.style.bottom = positionBottom + 'px';
-    }
-    else if (key === 'd') {
-        positionLeft += 20;
-        spaceShip.style.left = positionLeft + 'px';
-    }
-    else if (key === 'a') {
-        positionLeft -= 20;
-        spaceShip.style.left = positionLeft + 'px'
+    if (key in keys) {
+      keys[key] = true;
     }
   });
+  window.addEventListener('keyup', (event) => {
+    const key = event.key.toLowerCase();
+    if (key in keys) {
+      keys[key] = false;
+    }
+  });
+  function gameLoop() {
+    if (keys.w) {
+      positionBottom += speed;
+      if (positionBottom > 350) positionBottom = 350;
+    }
+    if (keys.s) {
+      positionBottom -= speed;
+      if (positionBottom < 0) positionBottom = 0;
+    }
+    if (keys.d) {
+      positionLeft += speed;
+    }
+    if (keys.a) {
+      positionLeft -= speed;
+      if (positionLeft < 0) positionLeft = 0;
+    }
+  }
 });

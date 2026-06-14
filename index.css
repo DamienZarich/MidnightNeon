@@ -112,6 +112,9 @@ background-attachment: fixed;
 background: linear-gradient(28deg, #ffffff 50%, transparent 50%) top left / 100% 50% no-repeat,
     linear-gradient(152deg, #ffffff 50%, transparent 50%) bottom left / 100% 50% no-repeat; 
     z-index: 6;
+    display: flex; 
+    height: 100%;
+    width: 100%;
 }
 .Spaceship {
   top: 0;
@@ -125,6 +128,8 @@ background: linear-gradient(28deg, #ffffff 50%, transparent 50%) top left / 100%
   filter: drop-shadow(0 0 8px #00f0ff);
   box-shadow:  0 0 20px #00f0ff, 0 0 40px #00f0ff;
   z-index: 7;
+  border-width: 50px;
+  border-color: #df2877;
 }
 .thruster {
   position: absolute;
