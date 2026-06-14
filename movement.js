@@ -38,5 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
       positionLeft -= speed;
       if (positionLeft < 0) positionLeft = 0;
     }
+    spaceShip.style.bottom = positionBottom + 'px';
+    spaceShip.style.left = positionLeft + 'px';
+    requestAnimationFrame(gameLoop)
   }
+  requestAnimationFrame(gameLoop);
 });
