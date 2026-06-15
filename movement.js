@@ -44,8 +44,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
       moved = true
     }
     if (moved) {
-      spaceShip.style.bottom = positionBottom + 'px';
-      spaceShip.style.left = positionLeft + 'px';
+      spaceShip.style.transform = `translate3d(${positionLeft}px, ${-positionBottom}px, 0px)`
     }
      requestAnimationFrame(gameLoop);
   }
