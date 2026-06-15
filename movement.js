@@ -23,32 +23,37 @@ const spaceShip = document.querySelector(".Spaceship-Container");
       keys[key] = false;
     }
   });
-  function gameLoop() {
+  function gameLoop(currentTime) {
     let deltaTime = (currentTime - lastTime) / 1000;
-    let moved = false
+    lastTime = currentTime;
+        let moved = false
+    const distance = speed * deltaTime;
     if (keys.w) {
-      positionBottom += speed;
+      positionBottom += distance;
       if (positionBottom > 1000) positionBottom = 1000;
       moved = true
     }
     if (keys.s) {
-      positionBottom -= speed;
+      positionBottom -= distance;
       if (positionBottom < 0) positionBottom = 0;
       moved = true
     }
     if (keys.d) {
-      positionLeft += speed;
+      positionLeft += distance;
       moved = true
     }
     if (keys.a) {
-      positionLeft -= speed;
+      positionLeft -= distance;
       if (positionLeft < 0) positionLeft = 0;
       moved = true
     }
-    if (moved) {
+
       spaceShip.style.transform = `translate3d(${positionLeft}px, ${-positionBottom}px, 0px)`
-    }
+
      requestAnimationFrame(gameLoop);
   }
- gameLoop()
+  requestAnimationFrame((time) => {
+ lastTime = time
+ gameLoop(time)
+  });
 });
