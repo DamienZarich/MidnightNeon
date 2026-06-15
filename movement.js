@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+const thruster = document.querySelector(".thruster")
 const spaceShip = document.querySelector(".Spaceship-Container");
   let positionBottom = 50;
   let positionLeft = 10;
@@ -50,6 +51,12 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     }
 
       spaceShip.style.transform = `translate3d(${positionLeft}px, ${-positionBottom}px, 0px)`
+if (keys.d) {
+thruster.style.transform = `rotate(180deg), scale(0.5, 0.5)`;
+}
+else if (key.a) {
+  
+}
 
      requestAnimationFrame(gameLoop);
   }

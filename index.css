@@ -148,6 +148,7 @@ transform: rotate(180deg);
     linear-gradient(152deg, #ffffff 50%, transparent 50%) bottom left / 100% 50% no-repeat;
       border-radius: 50%;
   filter: drop-shadow(-5px 0px 5px #00ffcc);
+  transition: ease-in-out 1.5s;
 }
 .cockPit {
   width: 40px;
