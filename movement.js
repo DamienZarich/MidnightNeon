@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     d: false
   };
 
-  const speed = 5; 
+  const speed = 6; 
   window.addEventListener('keydown', (event) => {
     const key = event.key.toLowerCase();
     if (key in keys) {
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function gameLoop() {
     if (keys.w) {
       positionBottom += speed;
-      if (positionBottom > 350) positionBottom = 350;
+      if (positionBottom > 1000) positionBottom = 1000;
     }
     if (keys.s) {
       positionBottom -= speed;
