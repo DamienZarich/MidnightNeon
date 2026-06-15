@@ -52,12 +52,12 @@ const spaceShip = document.querySelector(".Spaceship-Container");
 
       spaceShip.style.transform = `translate3d(${positionLeft}px, ${-positionBottom}px, 0px)`
 if (keys.d) {
-thruster.style.transform = `rotate(180deg), scale(0.5, 0.5)`;
+thruster.style.transform = `rotate(180deg) scale(1.8, 0.9)`;
+} else if (keys.a) {
+  thruster.style.transform = `rotate(180deg) scale(0.8, 0.5) translateX( -40px)`;
+} else {
+  thruster.style.transform = `rotate(180deg) scale(1, 0.9) translateX(-25px)`;
 }
-else if (key.a) {
-  
-}
-
      requestAnimationFrame(gameLoop);
   }
   requestAnimationFrame((time) => {
