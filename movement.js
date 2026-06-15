@@ -9,7 +9,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     d: false
   };
 
-  const speed = 350; 
+  const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
     const key = event.key.toLowerCase();
@@ -35,16 +35,17 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     }
     if (keys.s) {
       positionBottom -= distance;
-      if (positionBottom < 0) positionBottom = 0;
+      if (positionBottom < 100) positionBottom = 100;
       moved = true
     }
     if (keys.d) {
       positionLeft += distance;
+       if (positionLeft > 2100) positionLeft = 2100
       moved = true
     }
     if (keys.a) {
       positionLeft -= distance;
-      if (positionLeft < 0) positionLeft = 0;
+      if (positionLeft < 80) positionLeft = 80;
       moved = true
     }
 
