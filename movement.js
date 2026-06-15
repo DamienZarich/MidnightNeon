@@ -9,7 +9,8 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     d: false
   };
 
-  const speed = 6; 
+  const speed = 350; 
+  let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
     const key = event.key.toLowerCase();
     if (key in keys) {
@@ -23,6 +24,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     }
   });
   function gameLoop() {
+    let deltaTime = (currentTime - lastTime) / 1000;
     let moved = false
     if (keys.w) {
       positionBottom += speed;
