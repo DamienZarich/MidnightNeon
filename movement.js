@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const spaceShip = document.querySelector(".Spaceship-Container");
+const spaceShip = document.querySelector(".Spaceship-Container");
   let positionBottom = 50;
   let positionLeft = 10;
   const keys = {
@@ -23,24 +23,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   function gameLoop() {
+    let moved = false
     if (keys.w) {
       positionBottom += speed;
       if (positionBottom > 1000) positionBottom = 1000;
+      moved = true
     }
     if (keys.s) {
       positionBottom -= speed;
       if (positionBottom < 0) positionBottom = 0;
+      moved = true
     }
     if (keys.d) {
       positionLeft += speed;
+      moved = true
     }
     if (keys.a) {
       positionLeft -= speed;
       if (positionLeft < 0) positionLeft = 0;
+      moved = true
     }
-    spaceShip.style.bottom = positionBottom + 'px';
-    spaceShip.style.left = positionLeft + 'px';
-    requestAnimationFrame(gameLoop)
+    if (moved) {
+      spaceShip.style.bottom = positionBottom + 'px';
+      spaceShip.style.left = positionLeft + 'px';
+    }
+     requestAnimationFrame(gameLoop);
   }
-  requestAnimationFrame(gameLoop);
+ gameLoop()
 });
