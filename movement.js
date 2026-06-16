@@ -9,7 +9,12 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
-
+const particles = document.querySelector(".particles");
+function createParticles(x,y) {
+  const particles = document.createElement("div");
+  particles.className = "particles";
+  particles.appendChild(particles);
+}
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
