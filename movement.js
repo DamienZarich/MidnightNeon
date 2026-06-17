@@ -9,6 +9,12 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
+  const coconut = document.querySelector('.coconut');
+  function ThrowCoconut() {
+    const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
+    coconut.style.top = randomY + 'px';
+    coconut.classList.remove('coconut-animation')
+  }
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
