@@ -162,10 +162,13 @@ z-index: 9;
 }
 .coconut {
   position: absolute;
-  height: 50px;
-  width: 50px;
-  top: 500px;
-  left: 800px;
+  height: 150px;
+  width: 150px;
+  left: 100vw;
   z-index: 11;
-  transform: rotate(180deg);
+  transform: rotate(360deg);
+}
+.coconut-animation {
+  from {left: 100vw; }
+  to {left: -150px;}
 }
