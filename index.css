@@ -31,7 +31,7 @@ body {
     background-size: 250px 250px, 150px 150px, 400px 400px;
     background-position: 0 0, 40px 60px, 130px 20px;
     opacity: 0.8;
-    z-index: 3;
+    z-index: 2;
 }
 .Sun {
   position: absolute;
@@ -42,7 +42,7 @@ body {
   transform: translate(-50%, -100%);
   border-radius: 50%;
   filter: drop-shadow(0 0 30px rgba(255, 27, 120, 0.6));
-  z-index: 2;
+  z-index: 3;
   background: linear-gradient(to bottom,#ff1b78 0%, #ff9626 100%);
   -webkit-mask-image: repeating-linear-gradient(to bottom, black 0px, black 12px, transparent 12px, transparent 20px);
   mask-image: repeating-linear-gradient(to bottom, black 0px, black 12px, transparent 12px, transparent 20px);
@@ -168,7 +168,10 @@ z-index: 9;
   z-index: 11;
   transform: rotate(360deg);
 }
-.coconut-animation {
+@keyframes coconut-throw {
   from {left: 100vw; }
   to {left: -150px;}
+}
+.coconut-animation {
+  animation: coconut-throw 3s linear forwards;
 }

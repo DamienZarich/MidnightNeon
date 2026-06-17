@@ -14,7 +14,10 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
     coconut.style.top = randomY + 'px';
     coconut.classList.remove('coconut-animation')
+    void coconut.offsetWidth;
+    coconut.classList.add('coconut-animation');
   }
+  setInterval(ThrowCoconut, 5000)
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
