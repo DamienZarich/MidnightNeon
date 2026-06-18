@@ -160,20 +160,36 @@ border-radius: 50% 15px 15px 50% / 50% 50% 50% 50%;
 box-shadow: inset 0 0 10px #ffffff, 0 0 15px #00f0ff;
 z-index: 9;
 }
+.projectile {
+  position: absolute;
+  top: 0;
+  left: 100vh;
+  width: 250px;
+  height: 150px;
+  animation: coconut-throw var(--duration, 3s)  linear forwards;
+}
 .coconut {
   position: absolute;
-  height: 150px;
-  width: 150px;
+  left: 100px;
+}
+.fire {
+  position: absolute;
+  height: 350px;
+  width: 250px;
   left: 100vw;
-  z-index: 11;
-  transform: rotate(360deg);
+  z-index: 10;
+  rotate: 90deg;
 }
 @keyframes coconut-throw {
   from {left: 100vw; }
   to {left: -150px;}
-  from {rotate: 0deg;}
+  from {rotate: -720deg;}
   to {rotate: 360deg;}
 }
-.coconut-animation {
-  animation: coconut-throw var(--duration, 3s)  linear forwards;
+.fire-follow {
+  animation: fire-follow var(--duration, 3s) linear forwards ;
+}
+@keyframes fire-follow {
+  from {left: 100vw;}
+  to {left: -150px;}
 }
