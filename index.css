@@ -165,7 +165,9 @@ z-index: 9;
   height: 150px;
   width: 150px;
   left: 100vw;
+  top: 300px;
   z-index: 11;
+    animation: coconut-throw var(--duration, 3s)  linear;
 }
 .fire {
   position: absolute;
@@ -174,20 +176,19 @@ z-index: 9;
   left: 100vw;
   z-index: 10;
   rotate: 90deg;
+  top: 300px;
+  margin-top: -100px;
+  margin-left: 50px;
+  pointer-events: none;
+   animation: fire-follow var(--duration, 3s) linear;
 }
 @keyframes coconut-throw {
   from {left: 100vw; }
-  to {left: -200px;}
+  to {left: -300px;}
   from {rotate: -720deg;}
   to {rotate: 360deg;}
 }
-.coconut-animation {
-  animation: coconut-throw var(--duration, 3s)  linear forwards;
-}
-.fire-follow {
-  animation: fire-follow var(--duration, 3s) linear forwards ;
-}
 @keyframes fire-follow {
   from {left: 100vw;}
-  to {left: -150px;}
+  to {left: -300px;}
 }

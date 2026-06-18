@@ -16,18 +16,27 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
     coconut.style.top = randomY + 'px';
     fire.style.top = randomY + 'px';
+
     coconut.style.setProperty('--duration', currentduration + 's')
     fire.style.setProperty('--duration', currentduration + 's')
+
     coconut.classList.remove('coconut-animation');
     fire.classList.remove('fire-follow');
+
     void coconut.offsetWidth;
+    void fire.offsetWidth;
+
     coconut.classList.add('coconut-animation');
     fire.classList.add('fire-follow');
-    if (currentduration > 0.5) (
-      currentduration -= 0.1
-    )
+
+    if (currentduration > 5) (
+      currentduration -= 0.1)
   }
-  setInterval(ThrowCoconut, 3000)
+  coconut.addEventListener('animationend', () => {
+    coconut.classList.remove('coconut-animation');
+    fire.classList.remove('fire-follow');
+    setTimeout(ThrowCoconut, 100)
+  });
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
