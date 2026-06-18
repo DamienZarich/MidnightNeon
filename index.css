@@ -173,5 +173,5 @@ z-index: 9;
   to {left: -150px;}
 }
 .coconut-animation {
-  animation: coconut-throw 3s linear forwards;
+  animation: coconut-throw var(--duration, 3s)  linear forwards;
 }
