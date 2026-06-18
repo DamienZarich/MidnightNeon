@@ -10,15 +10,20 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     d: false
   };
   let currentduration = 3.0
-  const projectile = document.querySelector('.projectile');
+  const coconut = document.querySelector('.coconut');
+  const fire = document.querySelector('.fire');
   function ThrowCoconut() {
     const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
-    projectile.style.top = randomY + 'px';
-    projectile.style.setProperty('--duration', currentduration + 's')
-    projectile.classList.remove('projectile-animation');
-    void projectile.offsetWidth;
-    projectile.classList.add('projectile-animation');
-    if (currentduration < 0.5) (
+    coconut.style.top = randomY + 'px';
+    fire.style.top = randomY + 'px';
+    coconut.style.setProperty('--duration', currentduration + 's')
+    fire.style.setProperty('--duration', currentduration + 's')
+    coconut.classList.remove('coconut-animation');
+    fire.classList.remove('fire-follow');
+    void coconut.offsetWidth;
+    coconut.classList.add('coconut-animation');
+    fire.classList.add('fire-follow');
+    if (currentduration > 0.5) (
       currentduration -= 0.1
     )
   }
