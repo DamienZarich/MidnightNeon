@@ -163,33 +163,36 @@ z-index: 9;
 .projectile {
   position: absolute;
   top: 0;
-  left: 100vh;
+  left: 100vw;
   width: 250px;
   height: 150px;
   animation: coconut-throw var(--duration, 3s)  linear forwards;
+  z-index: 12;
+}
+.projectile-animation {
+  animation: coconut-throw var(--duration, 3s) linear forwards;
 }
 .coconut {
   position: absolute;
+  width: 150px;
   left: 100px;
+  top: 0;
+  z-index: 11;
+  animation: spin 1s linear infinite;
 }
 .fire {
   position: absolute;
-  height: 350px;
   width: 250px;
-  left: 100vw;
-  z-index: 10;
+  left: 0;
+  top: 0;
   rotate: 90deg;
+  z-index: 10;
 }
 @keyframes coconut-throw {
   from {left: 100vw; }
   to {left: -150px;}
-  from {rotate: -720deg;}
+}
+@keyframes sping {
+    from {rotate: -720deg;}
   to {rotate: 360deg;}
-}
-.fire-follow {
-  animation: fire-follow var(--duration, 3s) linear forwards ;
-}
-@keyframes fire-follow {
-  from {left: 100vw;}
-  to {left: -150px;}
 }
