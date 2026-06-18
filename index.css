@@ -171,6 +171,8 @@ z-index: 9;
 @keyframes coconut-throw {
   from {left: 100vw; }
   to {left: -150px;}
+  from {rotate: 0deg;}
+  to {rotate: 360deg;}
 }
 .coconut-animation {
   animation: coconut-throw var(--duration, 3s)  linear forwards;

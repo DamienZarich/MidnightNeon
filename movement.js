@@ -19,7 +19,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     void coconut.offsetWidth;
     coconut.classList.add('coconut-animation');
     if (currentduration < 0.5) (
-      currentduration -= 1
+      currentduration -= 0.1
     )
   }
   setInterval(ThrowCoconut, 3000)
