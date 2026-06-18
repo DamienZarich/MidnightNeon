@@ -20,23 +20,24 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     coconut.style.setProperty('--duration', currentduration + 's')
     fire.style.setProperty('--duration', currentduration + 's')
 
-    coconut.classList.remove('coconut-animation');
+    coconut.classList.remove('coconut-throw');
     fire.classList.remove('fire-follow');
 
     void coconut.offsetWidth;
     void fire.offsetWidth;
 
-    coconut.classList.add('coconut-animation');
+    coconut.classList.add('coconut-throw');
     fire.classList.add('fire-follow');
 
-    if (currentduration > 5) (
+    if (currentduration > 0.5) (
       currentduration -= 0.1)
-  }
+  } 
   coconut.addEventListener('animationend', () => {
-    coconut.classList.remove('coconut-animation');
+    coconut.classList.remove('coconut-throw');
     fire.classList.remove('fire-follow');
-    setTimeout(ThrowCoconut, 100)
+    setTimeout(ThrowCoconut, 3000)
   });
+  ThrowCoconut()
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
