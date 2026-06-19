@@ -165,7 +165,7 @@ z-index: 9;
   height: 150px;
   width: 150px;
   left: 100vw;
-  z-index: 11;
+  z-index: 12;
   transform: rotate(360deg);
 }
 .fire {
@@ -173,7 +173,7 @@ z-index: 9;
   height: 350px;
   width: 250px;
   left: 100vw;
-  z-index: 10;
+  z-index: 11;
   rotate: 90deg;
   top: 300px;
   margin-top: -100px;
@@ -182,11 +182,11 @@ z-index: 9;
 }
 @keyframes fire-follow {
   from {left: 100vw;}
-  to {left: -150px;}
+  to {left: -400px;}
 }
 @keyframes coconut-throw {
   from {left: 100vw; }
-  to {left: -150px;}
+  to {left: -400px;}
   from {rotate: 0deg;}
   to {rotate: 360deg;}
 }

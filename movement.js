@@ -9,7 +9,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
-  let currentduration = 3.0
+  let currentduration = 4.0
   const coconut = document.querySelector('.coconut');
   const fire = document.querySelector('.fire');
   function ThrowCoconut() {
@@ -24,11 +24,11 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     void fire.offsetWidth
     coconut.classList.add('coconut-animation');
     fire.classList.add('fire-follow');
-    if (currentduration < 0.5) (
+    if (currentduration > 0.5) (
       currentduration -= 0.1
     )
   }
-  setInterval(ThrowCoconut, 3000)
+  setInterval(ThrowCoconut, 4000)
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
@@ -50,22 +50,22 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     const distance = speed * deltaTime;
     if (keys.w) {
       positionBottom += distance;
-      if (positionBottom > 1000) positionBottom = 1000;
+      if (positionBottom > 800) positionBottom = 800;
       moved = true
     }
     if (keys.s) {
       positionBottom -= distance;
-      if (positionBottom < 100) positionBottom = 100;
+      if (positionBottom < 20) positionBottom = 20;
       moved = true
     }
     if (keys.d) {
       positionLeft += distance;
-       if (positionLeft > 2100) positionLeft = 2100
+       if (positionLeft > 1500) positionLeft = 1500
       moved = true
     }
     if (keys.a) {
       positionLeft -= distance;
-      if (positionLeft < 80) positionLeft = 80;
+      if (positionLeft < 40) positionLeft = 40;
       moved = true
     }
 
