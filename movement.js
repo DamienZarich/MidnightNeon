@@ -17,9 +17,13 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     coconut.style.top = randomY + 'px';
     fire.style.top = randomY + 'px';
     coconut.style.setProperty('--duration', currentduration + 's')
+    fire.style.setProperty('--duration', currentduration + 's')
     coconut.classList.remove('coconut-animation')
+    fire.classList.remove('fire-follow')
     void coconut.offsetWidth;
+    void fire.offsetWidth
     coconut.classList.add('coconut-animation');
+    fire.classList.add('fire-follow');
     if (currentduration < 0.5) (
       currentduration -= 0.1
     )
