@@ -9,39 +9,44 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
-  let currentduration = 4.0
+  let currentduration = 3.0
   const coconutsthrown = [];
   function spawnCoconut() {
     if (coconutsthrown.length >= 4) return;
     const coconut = document.createElement('img');
-    coconut.src = 'coconut.png';
+    coconut.src = 'coconut.png.png';
     coconut.className = 'coconut';
 
     const fire = document.createElement('img');
-    fire.src = 'fire.png';
+    fire.src = 'fire.png.png';
     fire.className = 'fire';
 
     const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
     coconut.style.top = randomY + 'px';
     fire.style.top = randomY + 'px';
 
-    coconut.style.setProperty('--duration', currentduration + '3s')
-    fire.style.setProperty('--duration', currentduration + '3s')
-  }
-  function ThrowCoconut() {
-   
-    
-    coconut.classList.remove('coconut-animation')
-    fire.classList.remove('fire-follow')
-    void coconut.offsetWidth;
-    void fire.offsetWidth
-    coconut.classList.add('coconut-animation');
+    coconut.style.setProperty('--duration', `${currentduration}s`)
+    fire.style.setProperty('--duration', `${currentduration}s`)
+
+    document.body.appendChild(coconut);
+    document.body.appendChild(fire);
+
+    const coconutSet = {coconut, fire };
+    coconutsthrown.push(coconutSet);
+
+    coconut.classList.add('coconut-animation')
     fire.classList.add('fire-follow');
-    if (currentduration > 0.5) (
-      currentduration -= 0.1
-    )
+
+     coconut.addEventListener('animationend', () => {
+    coconut.remove();
+    fire.remove();
+    coconutsthrown.splice(coconutsthrown.indexOf(coconutSet), 1);
+    setTimeout(spawnCoconut, 800)
+     });
   }
-  setInterval(ThrowCoconut, 4000)
+  for (let i = 0; i <4; i++) {
+    setTimeout(spawnCoconut, i * 1000)
+  }
   const speed = 450; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
