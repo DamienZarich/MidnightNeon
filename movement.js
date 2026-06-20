@@ -17,14 +17,20 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     coconut.src = 'coconut.png';
     coconut.className = 'coconut';
 
-    const fire
-  }
-  function ThrowCoconut() {
+    const fire = document.createElement('img');
+    fire.src = 'fire.png';
+    fire.className = 'fire';
+
     const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
     coconut.style.top = randomY + 'px';
     fire.style.top = randomY + 'px';
-    coconut.style.setProperty('--duration', currentduration + 's')
-    fire.style.setProperty('--duration', currentduration + 's')
+
+    coconut.style.setProperty('--duration', currentduration + '3s')
+    fire.style.setProperty('--duration', currentduration + '3s')
+  }
+  function ThrowCoconut() {
+   
+    
     coconut.classList.remove('coconut-animation')
     fire.classList.remove('fire-follow')
     void coconut.offsetWidth;
