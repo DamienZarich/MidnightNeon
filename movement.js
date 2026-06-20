@@ -10,8 +10,10 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     d: false
   };
   let currentduration = 4.0
-  const coconut = document.querySelector('.coconut');
-  const fire = document.querySelector('.fire');
+  const coconutsthrown = [];
+  function spawnCoconut() {
+    
+  }
   function ThrowCoconut() {
     const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
     coconut.style.top = randomY + 'px';
