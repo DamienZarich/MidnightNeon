@@ -13,6 +13,14 @@ const spaceShip = document.querySelector(".Spaceship-Container");
   const coconutsthrown = [];
   function spawnCoconut() {
     if (coconutsthrown.length >= 4) return;
+    let randomY;
+    let isTooClose = true;
+    const minDistance = 200;
+    while (isTooClose) {
+      randomY = Math.floor(Math.random() * (window.innerHeight-200));
+      isTooClose = coconutsthrown.some(c => Math.abs(parseInt(c.coconut.style.top) - randomY) < minDistance);
+      if (isTooClose && Math.random() > 0.9) break;
+    }
     const coconut = document.createElement('img');
     coconut.src = 'coconut.png.png';
     coconut.className = 'coconut';
@@ -21,10 +29,9 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     fire.src = 'fire.png.png';
     fire.className = 'fire';
 
-    const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
-    coconut.style.top = randomY + 'px';
+  coconut.style.top = randomY + 'px'; 
     fire.style.top = randomY + 'px';
-
+    
     coconut.style.setProperty('--duration', `${currentduration}s`)
     fire.style.setProperty('--duration', `${currentduration}s`)
 
@@ -41,7 +48,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     coconut.remove();
     fire.remove();
     coconutsthrown.splice(coconutsthrown.indexOf(coconutSet), 1);
-    setTimeout(spawnCoconut, 800)
+    setTimeout(spawnCoconut, 4000)
      });
   }
   for (let i = 0; i <4; i++) {
@@ -102,3 +109,6 @@ thruster.style.transform = `rotate(180deg) scale(1.8, 0.9)`;
  gameLoop(time)
   });
 });
+function gameOver() {
+  isGameOver = true;
+}
