@@ -29,5 +29,12 @@
    <div class="thruster"></div>
    <div class="cockPit"></div>
  </div>
+ <canvas id="myCanvas" width="800" height="600"></canvas>
+
+<div id="gameOverScreen" style="display: none; position: absolute; top: 0; left: 0; width: 800px; height: 600px; background: rgba(0, 0, 0, 0.7); color: white; text-align: center; padding-top: 200px;">
+    <h1>GAME OVER</h1>
+    <p id="highScoreDisplay">High Score: 0</p>
+    <button onclick="restartGame()">Restart</button>
+</div>
 </body> 
 </html>
