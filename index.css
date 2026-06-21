@@ -8,8 +8,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  opacity: 5%;
+  align-items: center;  
 }
 .Scene {
   position: relative;

@@ -15,7 +15,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     if (coconutsthrown.length >= 4) return;
     let randomY;
     let isTooClose = true;
-    const minDistance = 200;
+    const minDistance = 400;
     while (isTooClose) {
       randomY = Math.floor(Math.random() * (window.innerHeight-200));
       isTooClose = coconutsthrown.some(c => Math.abs(parseInt(c.coconut.style.top) - randomY) < minDistance);
@@ -111,4 +111,17 @@ thruster.style.transform = `rotate(180deg) scale(1.8, 0.9)`;
 });
 function gameOver() {
   isGameOver = true;
+}
+function collision() {
+  const shipRect = spaceShip.getBoundingClientRect();
+  coconutsthrown.forEach(c => {})
+  if(
+    spaceShip.X < coconut.X + coconut.width &&
+    spaceShip.X + spaceShip.width > coconut.X &&
+    spaceShip.Y < coconut.Y + coconut.height &&
+    spaceShip.Y + spaceShip.height > coconut.Y
+  )
+  {
+    gameOver();
+  }
 }
