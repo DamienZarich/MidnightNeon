@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
 
 body {
-  background: linear-gradient(to left, #FF9200, #F5B764);
   margin: 0;
   padding: 0;
   background-color: #050112;
@@ -10,6 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 5%;
 }
 .Scene {
   position: relative;
@@ -195,4 +195,10 @@ z-index: 9;
 }
 .fire-follow {
   animation: fire-follow var(--duration, 3s) linear forwards ;
+}
+#myCanvas {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+
 }
