@@ -9,6 +9,9 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
+  document.addEventListener("visibilitychange", () => {
+    coconutsthrown
+  }
   let currentduration = 3.0
   const coconutsthrown = [];
   function spawnCoconut() {
