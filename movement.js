@@ -9,12 +9,17 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
+    const coconutsthrown = [];
   document.addEventListener("visibilitychange", () => {
-    coconutsthrown
-  }
+    if (document.visibilityState === "visible") {
+      coconutsthrown.forEach(c => {
+        c.coconut.remove();
+        c.fire.remove();
+      });
+    }
+  });
   let currentduration = 3.0
-  const coconutsthrown = [];
-  function spawnCoconut() {
+    function spawnCoconut() {
     if (coconutsthrown.length >= 4) return;
     let randomY;
     let isTooClose = true;
