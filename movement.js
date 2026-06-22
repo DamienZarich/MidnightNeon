@@ -3,6 +3,7 @@ const thruster = document.querySelector(".thruster")
 const spaceShip = document.querySelector(".Spaceship-Container");
   let positionBottom = 50;
   let positionLeft = 10;
+  isGameOver = false
   const keys = {
     w: false,
     a: false,
@@ -16,6 +17,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
         c.coconut.remove();
         c.fire.remove();
       });
+      coconutsthrown.length = 0;
     }
   });
   let currentduration = 3.0
@@ -122,14 +124,16 @@ function gameOver() {
 }
 function collision() {
   const shipRect = spaceShip.getBoundingClientRect();
-  coconutsthrown.forEach(c => {})
-  if(
-    spaceShip.X < coconut.X + coconut.width &&
-    spaceShip.X + spaceShip.width > coconut.X &&
-    spaceShip.Y < coconut.Y + coconut.height &&
-    spaceShip.Y + spaceShip.height > coconut.Y
-  )
-  {
+  coconutsthrown.forEach(c => {
+    const cocoRect = c.coconut.getBoundingClientRect();
+
+    if (
+      shipRect.left < cocoRect.right &&
+      shipRect.right > cocoRect.left &&
+      shipRect.top < cocoRect.bottom &&
+      shipRect.bottom > cocoRect.top
+    ) {
     gameOver();
   }
+  });
 }
