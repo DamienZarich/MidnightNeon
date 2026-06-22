@@ -209,3 +209,6 @@ z-index: 13;
 color: white;
 font-family: sans-serif;
 }
+.hidden {
+  display: none;
+}

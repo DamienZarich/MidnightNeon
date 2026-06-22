@@ -3,13 +3,36 @@ const thruster = document.querySelector(".thruster")
 const spaceShip = document.querySelector(".Spaceship-Container");
   let positionBottom = 50;
   let positionLeft = 10;
-  isGameOver = false
+  let isGameOver = false
   const keys = {
     w: false,
     a: false,
     s: false,
     d: false
   };
+  function gameOver() {
+  if (isGameOver) return;
+  isGameOver = true;
+  const screen = document.getElementById('gameOverScreen')
+  screen.classList.remove('hidden')
+  spaceShip.style.opacity = "0%"
+}
+function collision() {
+  if (positionLeft < 20 && positionBottom < 60) return;
+  const shipRect = spaceShip.getBoundingClientRect();
+  coconutsthrown.forEach(c => {
+    const cocoRect = c.coconut.getBoundingClientRect();
+
+    if (
+      shipRect.left < cocoRect.right &&
+      shipRect.right > cocoRect.left &&
+      shipRect.top < cocoRect.bottom &&
+      shipRect.bottom > cocoRect.top
+    ) {
+    gameOver();
+  }
+  });
+}
     const coconutsthrown = [];
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {
@@ -79,6 +102,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     }
   });
   function gameLoop(currentTime) {
+    if (isGameOver) return;
     let deltaTime = (currentTime - lastTime) / 1000;
     lastTime = currentTime;
         let moved = false
@@ -103,6 +127,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
       if (positionLeft < 40) positionLeft = 40;
       moved = true
     }
+collision();
 
       spaceShip.style.transform = `translate3d(${positionLeft}px, ${-positionBottom}px, 0px)`
 if (keys.d) {
@@ -119,21 +144,3 @@ thruster.style.transform = `rotate(180deg) scale(1.8, 0.9)`;
  gameLoop(time)
   });
 });
-function gameOver() {
-  isGameOver = true;
-}
-function collision() {
-  const shipRect = spaceShip.getBoundingClientRect();
-  coconutsthrown.forEach(c => {
-    const cocoRect = c.coconut.getBoundingClientRect();
-
-    if (
-      shipRect.left < cocoRect.right &&
-      shipRect.right > cocoRect.left &&
-      shipRect.top < cocoRect.bottom &&
-      shipRect.bottom > cocoRect.top
-    ) {
-    gameOver();
-  }
-  });
-}
