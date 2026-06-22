@@ -4,6 +4,7 @@ const spaceShip = document.querySelector(".Spaceship-Container");
   let positionBottom = 50;
   let positionLeft = 10;
   let isGameOver = false
+  let startTime = performance.now()
   const keys = {
     w: false,
     a: false,
@@ -18,20 +19,34 @@ const spaceShip = document.querySelector(".Spaceship-Container");
   spaceShip.style.opacity = "0%"
 }
 function collision() {
-  if (positionLeft < 20 && positionBottom < 60) return;
-  const shipRect = spaceShip.getBoundingClientRect();
-  coconutsthrown.forEach(c => {
-    const cocoRect = c.coconut.getBoundingClientRect();
+  if (performance.now() - startTime < 1000) return;
 
-    if (
-      shipRect.left < cocoRect.right &&
-      shipRect.right > cocoRect.left &&
-      shipRect.top < cocoRect.bottom &&
-      shipRect.bottom > cocoRect.top
-    ) {
-    gameOver();
-  }
-  });
+  const shipRect = spaceShip.getBoundingClientRect();
+  if (shipRect.width === 0) return;
+
+  const padding = 40;
+  const shipHitbox = {
+    left: shipRect.left + padding,
+    right: shipRect.right - padding,
+    top: shipRect.top + padding,
+    bottom: shipRect.bottom - padding
+  };
+
+  coconutsthrown.forEach(c => {
+   const cocoRect = c.coconut.getBoundingClientRect();
+     if (cocoRect.width === 0) return;
+
+   const isColliding = (
+       shipHitbox.left < cocoRect.right &&
+       shipHitbox.right > cocoRect.left &&
+       shipHitbox.top < cocoRect.bottom &&
+       shipHitbox.bottom > cocoRect.top
+  );
+     if (isColliding) {
+        console.log("Collision detected! Ship:", shipHitbox, "Coconut:", cocoRect);
+        gameOver();
+     }
+ });
 }
     const coconutsthrown = [];
   document.addEventListener("visibilitychange", () => {
@@ -107,6 +122,7 @@ function collision() {
     lastTime = currentTime;
         let moved = false
     const distance = speed * deltaTime;
+    const ship
     if (keys.w) {
       positionBottom += distance;
       if (positionBottom > 800) positionBottom = 800;
