@@ -122,26 +122,20 @@ function collision() {
     lastTime = currentTime;
         let moved = false
     const distance = speed * deltaTime;
-    const ship
+    const shipHeight = 120;
+    const shipWidth = 180;
+    const margin = 20;
     if (keys.w) {
-      positionBottom += distance;
-      if (positionBottom > 800) positionBottom = 800;
-      moved = true
+     positionBottom = Math.min(positionBottom + distance, window.innerHeight - shipHeight - margin);
     }
     if (keys.s) {
-      positionBottom -= distance;
-      if (positionBottom < 20) positionBottom = 20;
-      moved = true
+     positionBottom = Math.max(positionBottom - distance, margin);
     }
     if (keys.d) {
-      positionLeft += distance;
-       if (positionLeft > 1500) positionLeft = 1500
-      moved = true
+      positionLeft = Math.min(positionLeft + distance, window.innerWidth - shipWidth - margin);
     }
     if (keys.a) {
-      positionLeft -= distance;
-      if (positionLeft < 40) positionLeft = 40;
-      moved = true
+      positionLeft = Math.max(positionLeft - distance, margin);
     }
 collision();
 

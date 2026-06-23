@@ -97,12 +97,14 @@ body {
 }
 .Spaceship-Container {
   position: absolute;
-  top: 50%;
-  left: 200px;
+  bottom: 0;
+  left: 0;
   width: 180px;
   height: 120px;
   z-index: 11;
   will-change: transform;
+  margin: 0;
+  padding: 0;
 }
 .SpaceshipOutline {
       position: absolute;
@@ -210,5 +212,5 @@ color: white;
 font-family: sans-serif;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
