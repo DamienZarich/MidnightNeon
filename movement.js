@@ -16,7 +16,12 @@ const spaceShip = document.querySelector(".Spaceship-Container");
   isGameOver = true;
   const screen = document.getElementById('gameOverScreen')
   screen.classList.remove('hidden')
+  void screen.offsetWidth;
   spaceShip.style.opacity = "0%"
+ coconutsthrown.forEach(c => {
+    c.coconut.style.animationPlayState = "paused";
+    c.fire.style.animationPlayState = "paused";
+  });
 }
 function collision() {
   if (performance.now() - startTime < 1000) return;
@@ -52,14 +57,15 @@ function collision() {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {
       coconutsthrown.forEach(c => {
-        c.coconut.remove();
-        c.fire.remove();
+        c.coconut.style.animationPlayState = "play";
+        c.fire.style.animationPlayState = "play";
       });
       coconutsthrown.length = 0;
     }
   });
   let currentduration = 3.0
     function spawnCoconut() {
+      if (isGameOver) return; 
     if (coconutsthrown.length >= 4) return;
     let randomY;
     let isTooClose = true;
