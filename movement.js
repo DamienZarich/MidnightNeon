@@ -69,14 +69,20 @@ function collision() {
     function spawnCoconut() {
       if (isGameOver) return; 
     if (coconutsthrown.length >= 4) return;
-    let randomY;
-    let isTooClose = true;
-    const minDistance = 400;
-    while (isTooClose) {
-      randomY = Math.floor(Math.random() * (window.innerHeight-200));
-      isTooClose = coconutsthrown.some(c => Math.abs(parseInt(c.coconut.style.top) - randomY) < minDistance);
-      if (isTooClose && Math.random() > 0.9) break;
+   const laneHeight = (window.innerHeight - 220) / 4;
+    const lanes = [
+      Math.floor(40),
+      Math.floor(40 + laneHeight),
+      Math.floor(40 + laneHeight * 2),
+      Math.floor(40 + laneHeight * 3)
+    ];
+    const occupiedLanes = coconutsthrown.map(c => parseInt(c.coconut.style.top));
     }
+      if (isTooClose) {
+        setTimeout(spawnCoconut, 200)
+        return
+      }
+    
     const coconut = document.createElement('img');
     coconut.src = 'coconut.png.png';
     coconut.className = 'coconut';
@@ -88,7 +94,7 @@ function collision() {
   coconut.style.top = randomY + 'px'; 
     fire.style.top = randomY + 'px';
 
-    currentduration = Math.max(1.0, currentduration - 0.1);
+    currentduration = Math.max(1.5, currentduration - 0.05);
 
     coconut.style.setProperty('--duration', `${currentduration}s`)
     fire.style.setProperty('--duration', `${currentduration}s`)
@@ -112,7 +118,7 @@ function collision() {
   for (let i = 0; i <4; i++) {
     setTimeout(spawnCoconut, i * 1000)
   }
-  const speed = 450; 
+  const speed = 650; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
     const key = event.key.toLowerCase();
