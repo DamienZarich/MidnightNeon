@@ -55,12 +55,14 @@ function collision() {
 }
     const coconutsthrown = [];
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
+      const isHidden = document.visibilityState === "hidden";
+      const state = isHidden ? "paused" : "running";
       coconutsthrown.forEach(c => {
-        c.coconut.style.animationPlayState = "play";
-        c.fire.style.animationPlayState = "play";
+        c.coconut.style.animationPlayState = state;
+        c.fire.style.animationPlayState = state;
       });
-      coconutsthrown.length = 0;
+      if (!isHidden) {
+        lastTime = performance.now();
     }
   });
   let currentduration = 3.0
@@ -125,6 +127,7 @@ function collision() {
   function gameLoop(currentTime) {
     if (isGameOver) return;
     let deltaTime = (currentTime - lastTime) / 1000;
+    deltaTime = Math.min(deltaTime, 0.1);
     lastTime = currentTime;
         let moved = false
     const distance = speed * deltaTime;

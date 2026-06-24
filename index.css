@@ -1,220 +1,234 @@
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #050112;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-.Scene {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  min-width: 800px;
-  min-height: 500px;
-  background: linear-gradient(to bottom, #721664 0%, #df2877 40%, #fd9a30 55%, #721664 55.5%);
-}
-.stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 35%;
-  background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px) ;
-    background-size: 250px 250px, 150px 150px, 400px 400px;
-    background-position: 0 0, 40px 60px, 130px 20px;
-    opacity: 0.8;
-    z-index: 2;
-}
-.Sun {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  width: 45vh;
-  height: 45vh;
-  transform: translate(-50%, -100%);
-  border-radius: 50%;
-  filter: drop-shadow(0 0 30px rgba(255, 27, 120, 0.6));
-  z-index: 3;
-  background: linear-gradient(to bottom,#ff1b78 0%, #ff9626 100%);
-  -webkit-mask-image: repeating-linear-gradient(to bottom, black 0px, black 12px, transparent 12px, transparent 20px);
-  mask-image: repeating-linear-gradient(to bottom, black 0px, black 12px, transparent 12px, transparent 20px);
-}
-.Middle {
-  position: absolute;
-  top: 32%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 150px;
-  white-space: nowrap;
-  font-family:"Bitcount Single", system-ui;
-  background: linear-gradient(to right, #0D0094, #7100C7);
-    -webkit-background-clip: text;
-  background-clip: text;
-  color:transparent;
-  z-index: 3;
-}
-.Horizon {
-  position: absolute;
-  top: 55%;
-  width: 100%;
-  height: 2px;
-  background-color: #ff006a;
-  box-shadow: 0 0 10px #fd9a30;
-  z-index: 5;
-} 
-.GridLines {
-  position: absolute;
-  top: 55%;
-  width: 100%;
-  height: 45%;
-  background: #190a35;
-  overflow: hidden;
-  z-index: 4;
-}
-.Floor {                                                                             
-  position: absolute;                                                                         
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #190a35;
-  z-index: 3;
-  background-image: 
-    linear-gradient(to bottom, 
-      rgba(144, 46, 122, 0.8) 2px, transparent 2px), linear-gradient(20deg, transparent 48%,51%, transparent 52%);
-  background-size: 100% 40px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-  background-position: top center;
-}
-*::selection{
-  background: transparent; 
-}
-.Spaceship-Container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 180px;
-  height: 120px;
-  z-index: 11;
-  will-change: transform;
-  margin: 0;
-  padding: 0;
-}
-.SpaceshipOutline {
-      position: absolute;
-  clip-path: polygon(100% 50%, 30% 0%, 50% 50%, 30% 100%); 
-background: linear-gradient(28deg, #4c5eff 50%, transparent 50%) top left / 100% 50% no-repeat,
-    linear-gradient(152deg, #4c5eff 50%, transparent 50%) bottom left / 100% 50% no-repeat; 
-    filter: drop-shadow(-5px 0px 7px #1dacff);
-    z-index: 6;
-    display: flex; 
-    height: 170px;
-    width: 230px;
-    bottom: -25px;
-    left: -15px;
-}
-.Spaceship {
-  top: 2%;
-  left: 2%;
- height: calc(100% - 4px); 
-  width: calc(100% - 4px);
-  position: absolute;
-  background: linear-gradient(to right, #111b30, #283e61);
-  clip-path: polygon(100% 50%, 30% 0%, 50% 50%, 30% 100%);
-  z-index: 7;
-  filter: drop-shadow(0 0 8px #00f0ff);
-  box-shadow:  0 0 20px #00f0ff, 0 0 40px #00f0ff;
-  z-index: 7;
-  border-width: 50px;
-  border-color: #df2877;
-}
-.thruster {
-  position: absolute;
-width: 90px;
-height: 40px  ;
-background: #ffffff;
-left: 0px;
-top: 40px;
-z-index: 6;
-transform: rotate(180deg);
- background: 
-    linear-gradient(28deg, #ffffff 50%, transparent 50%) top left / 100% 50% no-repeat,
-    linear-gradient(152deg, #ffffff 50%, transparent 50%) bottom left / 100% 50% no-repeat;
-      border-radius: 50%;
-  filter: drop-shadow(-5px 0px 15px #00ffcc);
-  transition: ease-in-out 0.1s;
-}
-.cockPit {
-  width: 40px;
-  height: 30px;
-  left: 105px;
-  top: 45px;
-  position: absolute;
-background: linear-gradient(135deg, #00f0ff, #0072ff);
-border-radius: 50% 15px 15px 50% / 50% 50% 50% 50%;
-box-shadow: inset 0 0 10px #ffffff, 0 0 15px #00f0ff;
-z-index: 9;
-}
-.coconut {
-  position: absolute;
-  height: 150px;
-  width: 150px;
-  left: 100vw;
-  z-index: 12;
-  transform: rotate(360deg);
-}
-.fire {
-  position: absolute;
-  height: 350px;
-  width: 250px;
-  left: 100vw;
-  z-index: 11;
-  rotate: 90deg;
-  top: 300px;
-  margin-top: -100px;
-  margin-left: 50px;
-  pointer-events: none;
-}
-@keyframes fire-follow {
-  from {left: 100vw;}
-  to {left: -400px;}
-}
-@keyframes coconut-throw {
-  from {left: 100vw; }
-  to {left: -400px;}
-  from {rotate: 0deg;}
-  to {rotate: 360deg;}
-}
-.coconut-animation {
-  animation: coconut-throw var(--duration, 3s)  linear;
-}
-.fire-follow {
-  animation: fire-follow var(--duration, 3s) linear forwards ;
-}
-#gameOverScreen {
-position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 13;
-  color: white;
-  font-family: sans-serif;
-  opacity: 1.5 ;
-  visibility: visible;
-  transition: opacity 5s ease-in;
-}
-.hidden {
-opacity: 0;
-visibility: hidden !important;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #050112;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+  }
+  .Scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-width: 800px;
+    min-height: 500px;
+    background: linear-gradient(to bottom, #721664 0%, #df2877 40%, #fd9a30 55%, #721664 55.5%);
+  }
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px) ;
+      background-size: 250px 250px, 150px 150px, 400px 400px;
+      background-position: 0 0, 40px 60px, 130px 20px;
+      opacity: 0.8;
+      z-index: 2;
+  }
+  .Sun {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 45vh;
+    height: 45vh;
+    transform: translate(-50%, -100%);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 30px rgba(255, 27, 120, 0.6));
+    z-index: 3;
+    background: linear-gradient(to bottom,#ff1b78 0%, #ff9626 100%);
+    -webkit-mask-image: repeating-linear-gradient(to bottom, black 0px, black 12px, transparent 12px, transparent 20px);
+    mask-image: repeating-linear-gradient(to bottom, black 0px, black 12px, transparent 12px, transparent 20px);
+  }
+  .Middle {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 150px;
+    white-space: nowrap;
+    font-family:"Bitcount Single", system-ui;
+    background: linear-gradient(to right, #0D0094, #7100C7);
+      -webkit-background-clip: text;
+    background-clip: text;
+    color:transparent;
+    z-index: 3;
+  }
+  .Horizon {
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    height: 2px;
+    background-color: #ff006a;
+    box-shadow: 0 0 10px #fd9a30;
+    z-index: 5;
+  } 
+  .GridLines {
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    height: 45%;
+    background: #190a35;
+    overflow: hidden;
+    z-index: 4;
+  }
+  .Floor {                                                                             
+    position: absolute;                                                                         
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #190a35;
+    z-index: 3;
+    background-image: 
+      linear-gradient(to bottom, 
+        rgba(144, 46, 122, 0.8) 2px, transparent 2px), linear-gradient(20deg, transparent 48%,51%, transparent 52%);
+    background-size: 100% 40px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-position: top center;
+  }
+  *::selection{
+    background: transparent; 
+  }
+  .Spaceship-Container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    height: 120px;
+    z-index: 11;
+    will-change: transform;
+    margin: 0;
+    padding: 0;
+  }
+  .SpaceshipOutline {
+        position: absolute;
+    clip-path: polygon(100% 50%, 30% 0%, 50% 50%, 30% 100%); 
+  background: linear-gradient(28deg, #4c5eff 50%, transparent 50%) top left / 100% 50% no-repeat,
+      linear-gradient(152deg, #4c5eff 50%, transparent 50%) bottom left / 100% 50% no-repeat; 
+      filter: drop-shadow(-5px 0px 7px #1dacff);
+      z-index: 6;
+      display: flex; 
+      height: 170px;
+      width: 230px;
+      bottom: -25px;
+      left: -15px;
+  }
+  .Spaceship {
+    top: 2%;
+    left: 2%;
+  height: calc(100% - 4px); 
+    width: calc(100% - 4px);
+    position: absolute;
+    background: linear-gradient(to right, #111b30, #283e61);
+    clip-path: polygon(100% 50%, 30% 0%, 50% 50%, 30% 100%);
+    z-index: 7;
+    filter: drop-shadow(0 0 8px #00f0ff);
+    box-shadow:  0 0 20px #00f0ff, 0 0 40px #00f0ff;
+    z-index: 7;
+    border-width: 50px;
+    border-color: #df2877;
+  }
+  .thruster {
+    position: absolute;
+  width: 90px;
+  height: 40px  ;
+  background: #ffffff;
+  left: 0px;
+  top: 40px;
+  z-index: 6;
+  transform: rotate(180deg);
+  background: 
+      linear-gradient(28deg, #ffffff 50%, transparent 50%) top left / 100% 50% no-repeat,
+      linear-gradient(152deg, #ffffff 50%, transparent 50%) bottom left / 100% 50% no-repeat;
+        border-radius: 50%;
+    filter: drop-shadow(-5px 0px 15px #00ffcc);
+    transition: ease-in-out 0.1s;
+  }
+  .cockPit {
+    width: 40px;
+    height: 30px;
+    left: 105px;
+    top: 45px;
+    position: absolute;
+  background: linear-gradient(135deg, #00f0ff, #0072ff);
+  border-radius: 50% 15px 15px 50% / 50% 50% 50% 50%;
+  box-shadow: inset 0 0 10px #ffffff, 0 0 15px #00f0ff;
+  z-index: 9;
+  }
+  .coconut {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    left: 100vw;
+    z-index: 12;
+    transform: rotate(360deg);
+  }
+  .fire {
+    position: absolute;
+    height: 350px;
+    width: 250px;
+    left: 100vw;
+    z-index: 11;
+    rotate: 90deg;
+    top: 300px;
+    margin-top: -100px;
+    margin-left: 50px;
+    pointer-events: none;
+  }
+  @keyframes fire-follow {
+    from {left: 100vw;}
+    to {left: -400px;}
+  }
+  @keyframes coconut-throw {
+    from {left: 100vw; }
+    to {left: -400px;}
+    from {rotate: 0deg;}
+    to {rotate: 360deg;}
+  }
+  .coconut-animation {
+    animation: coconut-throw var(--duration, 3s)  linear;
+  }
+  .fire-follow {
+    animation: fire-follow var(--duration, 3s) linear forwards ;
+  }
+  #gameOverScreen {
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 13;
+    color: white;
+    font-family: sans-serif;
+    opacity: 1.5 ;
+    visibility: visible;
+    transition: opacity 5s ease-in;
+  }
+  .hidden {
+  opacity: 0;
+  visibility: hidden !important;
+  }
+  .rest {
+    background: linear-gradient(red,orange);
+    width: 200px;
+    height: 50px;
+    align-items: center;
+    border-radius: 15px 15px 15px 15px;
+    border-width: 5px;
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 24px;
+  }
+  .glass {
+    
+  }
