@@ -139,9 +139,6 @@ const maxJitter = 35;
       keys[key] = false;
     }
   });
-  window.addEventListener('keydown', function(event){
-    if (isGameOver) return;
-  })
   function gameLoop(currentTime) {
     if (isGameOver) return;
     let deltaTime = (currentTime - lastTime) / 1000;
