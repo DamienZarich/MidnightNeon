@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MidnightLights</title>
-    <script src="movement.js" defer></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="index.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MidnightLights</title>
+<script src="movement.js" defer></script>
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+ <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+ <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-   <div class="Scene">
-   <div class="sky">
-    <div class="stars"></div>
- </div>
- <h1 class="Middle"></h1>  
+<div class="Scene">
+ <div class="sky">
+       <div class="stars"></div>
+   </div>
+       <h1 class="Middle"></h1>  
  <div class="Sun"></div>
  <div class="Horizon"></div>
  <div class="GridLines">
-    <div class="Floor"></div>
-    <div class="Reflection"></div>
- </div>
- <div class="Spaceship-Container">
-   <div class="SpaceshipOutline"></div>
-   <div class="Spaceship"></div>
-   <div class="thruster"></div>
-   <div class="cockPit"></div>
- </div>
- <div id="gameOverScreen" class="hidden">
-   <div class="glass"></div>
-    <h1>GAME OVER</h1>
-    <button class = "rest"onclick="location.reload()">Restart</button>
-</div>
-</body> 
-</html>
+       <div class="Floor"></div>
+       <div class="Reflection"></div>
+       </div>
+<div class="Spaceship-Container">
+    <div class="SpaceshipOutline"></div>
+    <div class="Spaceship"></div>
+    <div class="thruster"></div>
+    <div class="cockPit"></div>
+       </div>
+   </div> <div id="gameOverScreen" class="hidden">
+      <div class="glass">
+       <h1>GAME OVER</h1>
+      <button class="rest" onclick="location.reload()">Restart</button>
+       </div>
+   </div>
+
+   <div class="startScreen" id="start">
+      <div class="startGlass">
+         <h1 class="startText"></h1>
+         <button class="startbtn">start</button>
+         <button class="exit" onclick="window.location.href='about:blank'">Exit</button>
+       </div>
+   </div>
+</body>
