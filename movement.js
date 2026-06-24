@@ -65,7 +65,7 @@ function collision() {
         lastTime = performance.now();
     }
   });
-  let currentduration = 3.0
+  let currentduration = 4.0
     function spawnCoconut() {
       if (isGameOver) return; 
     if (coconutsthrown.length >= 4) return;
@@ -87,7 +87,9 @@ function collision() {
 
   coconut.style.top = randomY + 'px'; 
     fire.style.top = randomY + 'px';
-    
+
+    currentduration = Math.max(1.0, currentduration - 0.1);
+
     coconut.style.setProperty('--duration', `${currentduration}s`)
     fire.style.setProperty('--duration', `${currentduration}s`)
 
@@ -104,7 +106,7 @@ function collision() {
     coconut.remove();
     fire.remove();
     coconutsthrown.splice(coconutsthrown.indexOf(coconutSet), 1);
-    setTimeout(spawnCoconut, 4000)
+    setTimeout(spawnCoconut, 500)
      });
   }
   for (let i = 0; i <4; i++) {
