@@ -65,7 +65,7 @@ function collision() {
         lastTime = performance.now();
     }
   });
-  let currentduration = 4.0
+  let currentduration = 3.5
     function spawnCoconut() {
       if (isGameOver) return; 
     if (coconutsthrown.length >= 4) return;
@@ -74,14 +74,20 @@ function collision() {
       Math.floor(40),
       Math.floor(40 + laneHeight),
       Math.floor(40 + laneHeight * 2),
-      Math.floor(40 + laneHeight * 3)
+      Math.floor(40 + laneHeight * 3.5)
     ];
     const occupiedLanes = coconutsthrown.map(c => parseInt(c.coconut.style.top));
+    const freeLanes = lanes.filter(laneY => 
+      !occupiedLanes.some(occupiedY => Math.abs(occupiedY - laneY) < laneHeight)
+    );
+    if (freeLanes.length === 0) {
+      setTimeout(spawnCoconut, 200);
+      return;
     }
-      if (isTooClose) {
-        setTimeout(spawnCoconut, 200)
-        return
-      }
+const baseLaneY = freeLanes[Math.floor(Math.random() * freeLanes.length)];
+const maxJitter = 35;
+    const jitter = Math.floor(Math.random() * (maxJitter * 2)) - maxJitter;
+    const randomY = Math.max(20, Math.min(window.innerHeight - 180, baseLaneY + jitter));
     
     const coconut = document.createElement('img');
     coconut.src = 'coconut.png.png';
@@ -94,7 +100,7 @@ function collision() {
   coconut.style.top = randomY + 'px'; 
     fire.style.top = randomY + 'px';
 
-    currentduration = Math.max(1.5, currentduration - 0.05);
+    currentduration = Math.max(1, currentduration - 0.05);
 
     coconut.style.setProperty('--duration', `${currentduration}s`)
     fire.style.setProperty('--duration', `${currentduration}s`)
@@ -109,10 +115,11 @@ function collision() {
     fire.classList.add('fire-follow');
 
      coconut.addEventListener('animationend', () => {
-    coconut.remove();
-    fire.remove();
-    coconutsthrown.splice(coconutsthrown.indexOf(coconutSet), 1);
-    setTimeout(spawnCoconut, 500)
+      coconut.remove();
+      fire.remove();
+      coconutsthrown.splice(coconutsthrown.indexOf(coconutSet), 1);
+      const randomDelay = 400 + Math.random() * 400; 
+      setTimeout(spawnCoconut, randomDelay);
      });
   }
   for (let i = 0; i <4; i++) {
@@ -132,6 +139,9 @@ function collision() {
       keys[key] = false;
     }
   });
+  window.addEventListener('keydown', function(event){
+    if (isGameOver) return;
+  })
   function gameLoop(currentTime) {
     if (isGameOver) return;
     let deltaTime = (currentTime - lastTime) / 1000;
