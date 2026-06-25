@@ -135,9 +135,6 @@ const maxJitter = 35;
       setTimeout(spawnCoconut, randomDelay);
      });
   }
-  for (let i = 0; i <4; i++) {
-    setTimeout(spawnCoconut, i * 1000)
-  }
   const speed = 650; 
   let lastTime = performance.now();
   window.addEventListener('keydown', (event) => {
