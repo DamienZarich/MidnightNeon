@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 const thruster = document.querySelector(".thruster")
 const spaceShip = document.querySelector(".Spaceship-Container");
-const startScreeen = document.querySelector("startScreen");
-const startButton = document.getElementById("startButton");
+const startScreen = document.getElementById("startScreen"); 
+const startButton = document.querySelector(".startbtn");
   let positionBottom = 50;
   let positionLeft = 10;
   let isGameOver = false
@@ -13,8 +13,16 @@ const startButton = document.getElementById("startButton");
     s: false,
     d: false
   };
-  function startGame() {
-startScreeen.classList.add('hidden');
+function startGame() {
+    startScreen.classList.add('hidden');
+    startTime = performance.now(); 
+    requestAnimationFrame((time) => {
+      lastTime = time;
+      gameLoop(time);
+    });
+   for (let i = 0; i < 4; i++) {
+   setTimeout(spawnCoconut, i * 1000);
+  }
   }
   function gameOver() {
   if (isGameOver) return;
@@ -178,8 +186,5 @@ thruster.style.transform = `rotate(180deg) scale(1.8, 0.9)`;
 }
      requestAnimationFrame(gameLoop);
   }
-  requestAnimationFrame((time) => {
- lastTime = time
- gameLoop(time)
-  });
+startButton.addEventListener("click", startGame);
 });
