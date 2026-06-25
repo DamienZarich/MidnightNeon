@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 const thruster = document.querySelector(".thruster")
 const spaceShip = document.querySelector(".Spaceship-Container");
+const startScreeen = document.querySelector("startScreen");
+const startButton = document.getElementById("startButton");
   let positionBottom = 50;
   let positionLeft = 10;
   let isGameOver = false
@@ -11,6 +13,9 @@ const spaceShip = document.querySelector(".Spaceship-Container");
     s: false,
     d: false
   };
+  function startGame() {
+startScreeen.classList.add('hidden');
+  }
   function gameOver() {
   if (isGameOver) return;
   isGameOver = true;
