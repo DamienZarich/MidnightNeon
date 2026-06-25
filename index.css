@@ -6,10 +6,11 @@
     background-color: #050112;
     overflow: hidden;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
+    font-family: 'Aldrich', sans-serif;
   }
+  button {
+  font-family: 'Aldrich', sans-serif;
+}
   .Scene {
     position: relative;
     width: 100vw;
@@ -53,7 +54,6 @@
     transform: translate(-50%, -50%);
     font-size: 150px;
     white-space: nowrap;
-    font-family:"Bitcount Single", system-ui;
     background: linear-gradient(to right, #0D0094, #7100C7);
       -webkit-background-clip: text;
     background-clip: text;
@@ -209,7 +209,6 @@
     justify-content: center;
     z-index: 13;
     color: white;
-    font-family: sans-serif;
     opacity: 1.5 ;
     visibility: visible;
     transition: opacity 5s ease-in;
@@ -229,7 +228,6 @@
     border-radius: 15px 15px 15px 15px;
     border-width: 5px;
     border-style: none;
-    font-family: sans-serif;
     font-size: 24px;
     cursor: pointer;
     transition: transform .2s;
@@ -252,6 +250,19 @@
   .rest:hover {
     transform: scale(1.25);
   }
+  .start {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 1, 18, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 14;
+}
   .startGlass {
     background: linear-gradient(rgb(8, 188, 248), rgb(2, 86, 203));
   box-shadow: 0px 0px 1px 10px orange;
@@ -263,6 +274,7 @@
   justify-content: center; 
   align-items: center;     
   gap: 25px;
+  padding: 40px 20px;
   }
   .startbtn, .exit {
   background: linear-gradient(red, orange);
@@ -270,7 +282,6 @@
   height: 50px;
   border-radius: 15px;
   border: none;
-  font-family: sans-serif;
   font-size: 24px;
   color: black;
   cursor: pointer;
@@ -289,4 +300,44 @@
 .logo-container .bottom-row {
   display: flex;
   gap: 12px;
+}
+.logo-container .letter-box {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Aldrich', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2d3548 0%, #1e2330 100%);
+  border: 2px solid #3a4454;
+  border-radius: 14px;
+  user-select: none;
+  position: relative;
+  top: 0;
+  transition: all 0.1s ease;
+  box-shadow: 0 4px 0 #131722, 
+    0 8px 12px rgba(0, 0, 0, 0.5);
+}
+.logo-container .letter-box.w {
+  border-color: #00e5ff;
+  text-shadow: 0 0 8px #00e5ff;
+}
+.logo-container .letter-box.a,
+.logo-container .letter-box.s,
+.logo-container .letter-box.d {
+  border-color: #00e5ff; 
+  text-shadow: 0 0 8px #00e5ff;
+}
+.logo-container .letter-box:hover {
+  cursor: pointer;
+  background: #ffee00;
+  color: #ff0000;
+  border-color: #ff8000;
+  text-shadow: none;
+  top: 2px;
+  box-shadow: 0 2px 0 #131722, 
+   0 4px 6px rgba(0, 0, 0, 0.5);
 }
